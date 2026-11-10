@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ぴったりたたみ</title>
+  <meta name="description" content="服をドラッグで折りたたんで、収納にぴったり合わせるパズルゲーム">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <section id="screen-title" class="screen">
+      <div class="title-card">
+        <p class="kicker">服を収納にぴったり</p>
+        <h1>ぴったり<br>たたみ</h1>
+        <p class="lead">ドラッグで服を折りたたんで、<br>引き出しのサイズに合わせよう。</p>
+        <div class="menu">
+          <button id="btn-puzzle" class="btn primary big">パズル</button>
+          <button id="btn-ta" class="btn accent big">タイムアタック</button>
+        </div>
+        <p id="title-best" class="best"></p>
+        <button id="btn-sound" class="btn ghost small"></button>
+      </div>
+    </section>
+
+    <section id="screen-stages" class="screen hidden">
+      <header class="bar">
+        <button class="btn ghost icon" data-back="title" aria-label="戻る">←</button>
+        <h2>ステージをえらぶ</h2>
+        <span id="star-total" class="pill"></span>
+      </header>
+      <div id="stage-list" class="stage-list"></div>
+    </section>
+
+    <section id="screen-game" class="screen hidden">
+      <header class="bar">
+        <button id="btn-back" class="btn ghost icon" aria-label="戻る">←</button>
+        <h2 id="game-title"></h2>
+        <span id="game-info" class="pill"></span>
+      </header>
+      <div class="sizes">
+        <span>いま <b id="cur-size"></b></span>
+        <span>収納 <b id="box-size"></b></span>
+      </div>
+      <div class="board-wrap">
+        <canvas id="board"></canvas>
+        <div id="toast" class="toast"></div>
+        <div id="rank" class="rank"></div>
+      </div>
+      <footer class="controls">
+        <button id="btn-rotate" class="btn" title="R"><span class="ic">⟳</span>回転</button>
+        <button id="btn-flip" class="btn" title="F"><span class="ic">⇋</span>裏返し</button>
+        <button id="btn-reset" class="btn" title="Backspace"><span class="ic">↺</span>リセット</button>
+        <button id="btn-skip" class="btn hidden"><span class="ic">»</span>スキップ</button>
+        <button id="btn-store" class="btn primary" title="Enter">しまう</button>
+      </footer>
+    </section>
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-card">
+        <h3 id="modal-title"></h3>
+        <div id="modal-body"></div>
+        <div id="modal-buttons" class="modal-buttons"></div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
